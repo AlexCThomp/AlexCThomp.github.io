@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.mandropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.mandropbtn:hover, .dropbtn:focus {
+    background-color: #3e8e41;
+}
+
+.mandropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.mandropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.mandropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.mandropdown a:hover {background-color: #f1f1f1}
+
+.moddropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+
+
+.moddropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.moddropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.moddropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.moddropdown a:hover {background-color: #f1f1f1}
+
+.submitButt {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.submitButton:hover, .dropbtn:focus {
+    background-color: #3e8e41;
+}
+
+.submitButt {
+    position: relative;
+    display: inline-block;
+}
+
+.submitButt a:hover {background-color: #f1f1f1}
+
+.show {display:block;}
+</style>
+</head>
+<body>
+
+<h2>REQUIREMENTS ENGINEERING FAGGOTRY</h2>
+<p>my anus is bleeding.</p>
+
+<div class="mandropdown">
+<button onclick="manuFunc()" class="mandropbtn">Manufacturer</button>
+  <div id="manuDrop" class="mandropdown-content">
+    <button onclick="showMan()" id="toyota">Toyota</a>
+  </div>
+</div>
+
+<div id="manText" style="display: none">TOYOTA</div>
+
+<div class="moddropdown">
+<button onclick="modelFunc()" class="moddropbtn">Model</button>
+  <div id="modelDrop" class="moddropdown-content">
+    <button onclick="showMod()" id="camry">Camry</a>
+  </div>
+</div>
+
+<div id="modText" style="display: none">CAMRY</div>
+
+<div class="submitButt">
+<button onclick="submitFunc()" class="submitButton">Submit</button>
+</div>
+
+<div id="3dDiv" style="display: none">
+	<iframe id="3dfucker" src="https://3dwarehouse.sketchup.com/embed.html?mid=d56104e27f9d5f55725a7749daae1afa&width=580&height=326" align="right" frameborder="0" scrolling="no" marginheight="0" marginwidth="25" width="580" height="326" allowfullscreen>
+	</iframe>
+</div>
+
+<script>
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function manuFunc() {
+    document.getElementById("manuDrop").classList.toggle("show");
+}
+
+function modelFunc(){
+	document.getElementById("modelDrop").classList.toggle("show");
+}
+
+function showMan(){
+	var man = document.getElementById("manText");
+	if(man.style.display === 'none'){
+		man.style.display = 'block';
+	}else{
+		man.style.display = 'none';
+	}
+}
+
+function showMod(){
+	var mod = document.getElementById("modText");
+	if(mod.style.display === 'none'){
+		mod.style.display = 'block';
+	}else{
+		mod.style.display = 'none';
+	}
+}
+function submitFunc(){
+	var sample = document.getElementById("3dDiv");
+	if(sample.style.display === 'none'){
+		sample.style.display = 'block';
+	}else{
+		sample.style.display = 'none';
+	}
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.mandropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("mandropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+  if (!event.target.matches('.moddropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("moddropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
+
+</body>
+</html>
