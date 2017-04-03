@@ -3,6 +3,7 @@
 <head>
 <style>
 
+
 .modsSelect {
 	display: none;
 }
@@ -17,6 +18,9 @@
 	display: none;
 }
 
+.code{
+	display: none;
+}
 
 .submitButton {
     background-color: #4CAF50;
@@ -42,8 +46,7 @@
 </head>
 <body>
 
-<h2>REQUIREMENTS ENGINEERING</h2>
-<p>CAR COLOUR PICKER SYSTEM</p>
+<h2>CAR COLOUR PICKER SYSTEM</h2>
 
 <select class="mansSelect" id="mans">
     <option selected disabled>Select Manufacturer</option>
@@ -97,9 +100,32 @@
 <button onclick="submitFunc()" class="submitButton">Submit</button>
 </div>
 
-<div id="3dDiv" style="display: none">
-	<iframe id="3dfucker" src="https://3dwarehouse.sketchup.com/embed.html?mid=d56104e27f9d5f55725a7749daae1afa&width=580&height=326" align="right" frameborder="0" scrolling="no" marginheight="0" marginwidth="25" width="580" height="326" allowfullscreen>
-	</iframe>
+<p class="code" id="theCode">CODE WILL DISPLAY HERE</p>
+
+<div id="exImg">
+	<img class="exteriorImage" id="exteriorImg" src="" height="250" width="400">
+	<!--
+	<img class="TceWhite" id="alpineWhite" src="ToyotaCamryExterior - Alpine White" height="500" width="800">
+	<img class="TceSilver" id="celestialSilverMetallic" src="ToyotaCamryExterior - Celestial Silver Metallic" height="500" width="800">
+	<img class="TceBlack" id="midnightBlackMetallic" src="ToyotaCamryExterior - Midnight Black Metallic" height="500" width="800">
+	<img class="TceRuby" id="rubyFlarePearl" src="ToyotaCamryExterior - Ruby Flare Pearl" height="500" width="800">
+	<img class="CceBlue" id="admiralBlue" src="ChevyCorvetteExterior - Admiral Blue.png" height="500" width="800">
+	<img class="CceBlack" id="black" src="ChevyCorvetteExterior - Black.png" height="500" width="800">
+	<img class="CceSilver" id="bladeSilver" src="ChevyCorvetteExterior - Blade Silver.png" height="500" width="800">
+	<img class="CceYellow" id="racingYellow" src="ChevyCorvetteExterior - Racing Yellow.png" height="500" width="800">
+	<img class="CceRed" id="torchRed" src="ChevyCorvetteExterior - Torch Red.png" height="500" width="800">
+	-->
+</div>
+
+<div id="inImg">
+	<img class="interiorImage" id="interiorImg" src="" height="250" width="400">
+	<!--
+	<img class="CciRb" id="redBlack" src="ChevyCorvetteInterior - Red+Black.png" height="500" width="800">
+	<img class="CciRed" id="adrenalineRed" src="CorvetteInterior - Adrenaline Red.png" height="500" width="800">
+	<img class="TciBlack" id="blackFabric" src="ToyotaCamryInterior-Black Fabric.png" height="500" width="800">
+	<img class="TciGrey" id="greyFabric" src="ToyotaCamryInterior-Grey Fabric.png" height="500" width="800">
+	<img class="TciRed" id="red" src="ToyotaCamryInterior-RED.png" height="500" width="800">
+	-->
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
@@ -107,6 +133,10 @@
 <script>
 
 $("#mans").on("change", function() {
+
+	$("#exImg").hide();
+	$("#inImg").hide();
+	
     $mods = $("#mods");
     $mods.find("optgroup").hide().children().hide();
     $mods.find("optgroup[label='" + this.value + "']").show().children().show();
@@ -124,9 +154,12 @@ $("#mans").on("change", function() {
     $incols.find("optgroup").hide().children().hide();
     $incols.find("optgroup[label='" + $("#mods").val() + "']").show().children().show();
     $incols.find("optgroup[label='" + $("#mods").val() + "'] option").eq(0).prop("selected", true);
+
+    $("#theCode").hide();
 });
 
 $("#mods").on("change", function() {
+	
     $excols = $("#excols");
     $excols.find("optgroup").hide().children().hide();
     $excols.find("optgroup[label='" + this.value + "']").show().children().show();
@@ -138,14 +171,39 @@ $("#mods").on("change", function() {
     $incols.find("optgroup[label='" + this.value + "']").show().children().show();
     $incols.find("optgroup[label='" + this.value + "'] option").eq(0).prop("selected", true);
     $incols.show();
+
+    $inImg = $("#interiorImg");
+    $inImg.attr("src", $incols.val()+".png");
+    $("#inImg").show();
+
+    $exImg = $("#exteriorImg");
+    $exImg.attr("src", $excols.val()+".png");
+    $("#exImg").show();
+    
+    $("#theCode").hide();
+});
+
+$("#excols").on("change", function() {
+
+    $exImg = $("#exteriorImg");
+    $exImg.attr("src", this.value +".png");
+    $("#exImg").show();
+    $("#theCode").hide();
+});
+
+$("#incols").on("change", function() {
+
+    $exImg = $("#interiorImg");
+    $exImg.attr("src", this.value +".png");
+    $("#inImg").show();
+    $("#theCode").hide();
 });
 
 function submitFunc(){
-	var sample = document.getElementById("3dDiv");
-	if(sample.style.display === 'none'){
-		sample.style.display = 'block';
-	}else{
-		sample.style.display = 'none';
+
+	var code = document.getElementById("theCode");
+	if(code.style.display === 'none'){
+		code.style.display = 'block';
 	}
 }
 
