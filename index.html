@@ -202,9 +202,15 @@ $("#incols").on("change", function() {
 function submitFunc(){
 
 	var code = document.getElementById("theCode");
+	var man = document.getElementById("mans");
+	var mod = document.getElementById("mods");
+	var excol = document.getElementById("excols");
+	var incol = document.getElementById("incols");
+	code.innerHTML = man.value + mod.value + excol.value + incol.value;
 	if(code.style.display === 'none'){
 		code.style.display = 'block';
 	}
+	
 }
 
 
