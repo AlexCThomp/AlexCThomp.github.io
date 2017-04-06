@@ -183,13 +183,13 @@ $("#mods").on("change", function() {
 
     $inImg = $("#interiorImg");
     $inImg.attr("src", $incols.val()+".png");
-    $("#inImg").show();
+    $("#inImg").css('display', 'inline-block');
 
     $exImg = $("#exteriorImg");
     $exImg.attr("src", $excols.val()+".png");
     $("#exImg").show();
     
-    $("#submitter").show();
+    $("#submitter").css('display', 'inline-block');
     $("#theCode").hide();
 });
 
@@ -205,7 +205,7 @@ $("#incols").on("change", function() {
 
     $exImg = $("#interiorImg");
     $exImg.attr("src", this.value +".png");
-    $("#inImg").show();
+    $("#inImg").css('display', 'inline-block');
     $("#theCode").hide();
 });
 
