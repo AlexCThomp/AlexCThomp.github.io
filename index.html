@@ -21,6 +21,14 @@
 .code{
 	display: none;
 }
+	
+.externImg{
+	display: none;
+}
+	
+.internImg{
+	display: none;
+}
 
 .submitButton {
     background-color: #4CAF50;
@@ -37,7 +45,7 @@
 
 .submitbtn {
     position: relative;
-    display: inline-block;
+    display: none;
 }
 
 .submitbtn a:hover {background-color: #f1f1f1}
@@ -102,7 +110,7 @@
 
 <p class="code" id="theCode">CODE WILL DISPLAY HERE</p>
 
-<div id="exImg">
+<div class="externImg" id="exImg">
 	<img class="exteriorImage" id="exteriorImg" src="" height="250" width="400">
 	<!--
 	<img class="TceWhite" id="alpineWhite" src="ToyotaCamryExterior - Alpine White" height="500" width="800">
@@ -117,7 +125,7 @@
 	-->
 </div>
 
-<div id="inImg">
+<div class="internImg" id="inImg">
 	<img class="interiorImage" id="interiorImg" src="" height="250" width="400">
 	<!--
 	<img class="CciRb" id="redBlack" src="ChevyCorvetteInterior - Red+Black.png" height="500" width="800">
