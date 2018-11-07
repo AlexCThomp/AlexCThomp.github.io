@@ -1,231 +1,27 @@
 <!DOCTYPE html>
-<html>
-<head>
-<style>
-
-
-.modsSelect {
-	display: none;
-}
-
-
-.inColSelect {
-	display: none;
-}
-
-
-.exColSelect {
-	display: none;
-}
-
-.code{
-	display: none;
-}
-	
-.externImg{
-	display: none;
-}
-	
-.internImg{
-	display: none;
-}
-
-.submitButton {
-    background-color: #4CAF50;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-}
-
-.submitButton:hover, .dropbtn:focus {
-    background-color: #3e8e41;
-}
-
-.submitbtn {
-    position: relative;
-    display: none;
-}
-
-.submitbtn a:hover {background-color: #f1f1f1}
-.show {display:block;}
-</style>
-</head>
+<html lang="en-US">
 <body>
 
-<h2>CAR COLOUR PICKER SYSTEM</h2>
+<h1>Tonald Drump</h1>
 
-<select class="mansSelect" id="mans">
-    <option selected disabled>Select Manufacturer</option>
-    <option value="Toyota">Toyota</option>
-    <option value="Chevrolet">Chevrolet</option>
-</select>
+<p>Super Secret Project!</p>
 
-<select class="modsSelect" id="mods">
-	<option selected disabled id="modsSelect">Select Model</option>
-  <optgroup label="Toyota">
-    <option value="camry">Camry</option>
-  </optgroup>
-  <optgroup label="Chevrolet">
-    <option value="corvette">Corvette</option>
-  </optgroup>
-</select>
+<p>Translate this page:</p>
 
-<select class="exColSelect" id="excols">
-	<option selected disabled>Select Exterior Colour</option>
-  <optgroup label="camry">
-    <option value="alpineWhite">Alpine White</option>
-    <option value="celestialSilverMetallic">Celestial Silver Metallic</option>
-    <option value="cremeBruleeMica">Creme Brulee Mica</option>
-    <option value="midnightBlackMetallic">Midnight Black Metallic</option>
-    <option value="rubyFlarePearl">Ruby Flare Pearl</option>
-  </optgroup>
-  <optgroup label="corvette">
-    <option value="admiralBlue">Admiral Blue</option>
-    <option value="black">Black</option>
-    <option value="bladeSilver">Blade Silver</option>
-    <option value="racingYellow">Racing Yellow</option>
-    <option value="torchRed">Torch Red</option>
-  </optgroup>
-</select>
+<div id="google_translate_element"></div>
 
-<select class="inColSelect" id="incols">
-	<option selected disabled>Select Interior Colour</option>
-  <optgroup label="camry">
-    <option value="blackFabric">Black Fabric</option>
-    <option value="greyFabric">Grey Fabric</option>
-    <option value="red">PREDATOR VISION</option>
-  </optgroup>
-  <optgroup label="corvette">
-    <option value="adrenalineRed">Adrenaline Red</option>
-    <option value="darkGrey">Dark Grey</option>
-    <option value="redBlack">Red Black</option>
-  </optgroup>
-</select>
-
-<div class="submitbtn" id="submitter">
-<button onclick="submitFunc()" class="submitButton">Submit</button>
-</div>
-
-<p class="code" id="theCode">CODE WILL DISPLAY HERE</p>
-
-<div class="externImg" id="exImg">
-	<img class="exteriorImage" id="exteriorImg" src="" height="250" width="400">
-	<!--
-	<img class="TceWhite" id="alpineWhite" src="ToyotaCamryExterior - Alpine White" height="500" width="800">
-	<img class="TceSilver" id="celestialSilverMetallic" src="ToyotaCamryExterior - Celestial Silver Metallic" height="500" width="800">
-	<img class="TceBlack" id="midnightBlackMetallic" src="ToyotaCamryExterior - Midnight Black Metallic" height="500" width="800">
-	<img class="TceRuby" id="rubyFlarePearl" src="ToyotaCamryExterior - Ruby Flare Pearl" height="500" width="800">
-	<img class="CceBlue" id="admiralBlue" src="ChevyCorvetteExterior - Admiral Blue.png" height="500" width="800">
-	<img class="CceBlack" id="black" src="ChevyCorvetteExterior - Black.png" height="500" width="800">
-	<img class="CceSilver" id="bladeSilver" src="ChevyCorvetteExterior - Blade Silver.png" height="500" width="800">
-	<img class="CceYellow" id="racingYellow" src="ChevyCorvetteExterior - Racing Yellow.png" height="500" width="800">
-	<img class="CceRed" id="torchRed" src="ChevyCorvetteExterior - Torch Red.png" height="500" width="800">
-	-->
-</div>
-
-<div class="internImg" id="inImg">
-	<img class="interiorImage" id="interiorImg" src="" height="250" width="400">
-	<!--
-	<img class="CciRb" id="redBlack" src="ChevyCorvetteInterior - Red+Black.png" height="500" width="800">
-	<img class="CciRed" id="adrenalineRed" src="CorvetteInterior - Adrenaline Red.png" height="500" width="800">
-	<img class="TciBlack" id="blackFabric" src="ToyotaCamryInterior-Black Fabric.png" height="500" width="800">
-	<img class="TciGrey" id="greyFabric" src="ToyotaCamryInterior-Grey Fabric.png" height="500" width="800">
-	<img class="TciRed" id="red" src="ToyotaCamryInterior-RED.png" height="500" width="800">
-	-->
-</div>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-
-<script>
-
-$("#mans").on("change", function() {
-
-	$("#exImg").hide();
-	$("#inImg").hide();
-	
-    $mods = $("#mods");
-    $mods.find("optgroup").hide().children().hide();
-    $mods.find("optgroup[label='" + this.value + "']").show().children().show();
-    $mods.find("option[id='modsSelect']").prop("selected", true);
-    $mods.show();
-
-    $excols = $("#excols");
-    $excols.hide();
-    $excols.find("optgroup").hide().children().hide();
-    $excols.find("optgroup[label='" + $("#mods").val() + "']").show().children().show();
-    $excols.find("optgroup[label='" + $("#mods").val() + "'] option").eq(0).prop("selected", true);
-
-    $incols = $("#incols");
-    $incols.hide();
-    $incols.find("optgroup").hide().children().hide();
-    $incols.find("optgroup[label='" + $("#mods").val() + "']").show().children().show();
-    $incols.find("optgroup[label='" + $("#mods").val() + "'] option").eq(0).prop("selected", true);
-
-    $("#submitter").hide();
-    $("#theCode").hide();
-});
-
-$("#mods").on("change", function() {
-	
-    $excols = $("#excols");
-    $excols.find("optgroup").hide().children().hide();
-    $excols.find("optgroup[label='" + this.value + "']").show().children().show();
-    $excols.find("optgroup[label='" + this.value + "'] option").eq(0).prop("selected", true);
-	$excols.show();
-
-    $incols = $("#incols");
-    $incols.find("optgroup").hide().children().hide();
-    $incols.find("optgroup[label='" + this.value + "']").show().children().show();
-    $incols.find("optgroup[label='" + this.value + "'] option").eq(0).prop("selected", true);
-    $incols.show();
-
-    $inImg = $("#interiorImg");
-    $inImg.attr("src", $incols.val()+".png");
-    $("#inImg").css('display', 'inline-block');
-
-    $exImg = $("#exteriorImg");
-    $exImg.attr("src", $excols.val()+".png");
-    $("#exImg").show();
-    
-    $("#submitter").css('display', 'inline-block');
-    $("#theCode").hide();
-});
-
-$("#excols").on("change", function() {
-
-    $exImg = $("#exteriorImg");
-    $exImg.attr("src", this.value +".png");
-    $("#exImg").show();
-    $("#theCode").hide();
-});
-
-$("#incols").on("change", function() {
-
-    $exImg = $("#interiorImg");
-    $exImg.attr("src", this.value +".png");
-    $("#inImg").css('display', 'inline-block');
-    $("#theCode").hide();
-});
-
-function submitFunc(){
-
-	var code = document.getElementById("theCode");
-	var man = document.getElementById("mans");
-	var mod = document.getElementById("mods");
-	var excol = document.getElementById("excols");
-	var incol = document.getElementById("incols");
-	code.innerHTML = man.value + mod.value + excol.value + incol.value;
-	if(code.style.display === 'none'){
-		code.style.display = 'block';
-	}
-	
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
 }
-
-
-
 </script>
+
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<h2>How to win elections:</h2>
+<p>Step one: Lie <br>
+Step Two: Win the election</p>
+
 
 </body>
 </html>
